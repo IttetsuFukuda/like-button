@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: like-button-pod
+spec:
+  containers:
+    - name: like-button-pod
+      image: docker.io/ittetsufukuda/like-button
+      ports:
+        - containerPort: 80

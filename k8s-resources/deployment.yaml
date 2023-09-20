@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: like-button-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: like-button
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 0%
+  template:
+    metadata:
+      labels:
+        app: like-button
+    spec:
+      containers:
+        - image: docker.io/ittetsufukuda/like-button
+          name: like-button-image

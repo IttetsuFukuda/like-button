@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: like-button-docker-compose
+    image: like-button-docker-compose
+    build:
+      context: .
+    ports:
+      - 8080:80
