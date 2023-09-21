@@ -10,7 +10,10 @@ COPY . .
 RUN yarn build
 
 # stage 2
+# update libwebp for vulnerability
 FROM nginx:1.25.2-alpine
+RUN apk update && apk upgrade libwebp && rm -rf /var/cache/apk/*
+
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=builder /app/build .
